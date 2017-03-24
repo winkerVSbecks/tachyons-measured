@@ -1,11 +1,12 @@
+import R from 'ramda';
 import { PropTypes } from 'react';
 import { classesFor } from './style-helper';
 import { whiteSpaceScale } from './scales';
-import { cx, createEagerElement } from './utils';
+import { cx, createWithStyleHoc } from './utils';
 
 const whiteSpaceProp = PropTypes.oneOf(whiteSpaceScale);
 
-const whiteSpaceProps = {
+const whiteSpacePropTypes = {
   ma: whiteSpaceProp,
   mt: whiteSpaceProp,
   ml: whiteSpaceProp,
@@ -23,32 +24,28 @@ const whiteSpaceProps = {
   className: PropTypes.any,
 };
 
+function whiteSpaceTransformation({
+  className,
+  ma, mt, ml, mr, mb, mv, mh,
+  pa, pt, pl, pr, pb, pv, ph,
+  ...ownerProps
+}) {
+  const margins = classesFor({ ma, mt, ml, mr, mb, mv, mh });
+  const paddings = classesFor({ pa, pt, pl, pr, pb, pv, ph });
+
+  return R.merge(
+    { className: cx([margins, paddings, className]) },
+    ownerProps,
+  );
+}
+
 /**
  * HOC that allows you to configure
- * WhiteSpace styles as props
+ * WhiteSpace styles through props
  */
-export function withWhiteSpace(Component) {
-  function WithWhiteSpace({
-    className,
-    ma, mt, ml, mr, mb, mv, mh,
-    pa, pt, pl, pr, pb, pv, ph,
-    ...ownerProps
-  }) {
-    const margins = classesFor({ ma, mt, ml, mr, mb, mv, mh });
-    const paddings = classesFor({ pa, pt, pl, pr, pb, pv, ph });
-
-    const props = {
-      className: cx([margins, paddings, className]),
-      ...ownerProps,
-    };
-
-    return createEagerElement(Component, props);
-  }
-
-  WithWhiteSpace.displayName =
-    `withWhiteSpace(${Component.displayName || Component.name || Component})`;
-
-  WithWhiteSpace.propTypes = { ...Component.propTypes, ...whiteSpaceProps };
-
-  return WithWhiteSpace;
-}
+export const withWhiteSpace = component => createWithStyleHoc({
+  name: 'withWhiteSpace',
+  transformation: whiteSpaceTransformation,
+  propTypes: whiteSpacePropTypes,
+  component,
+});

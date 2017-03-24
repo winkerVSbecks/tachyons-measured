@@ -4,7 +4,7 @@ import { lineHeights } from './scales';
 const classFromTachyons = R.identity;
 const list = R.unapply(R.identity);
 
-const selectorFor = R.curry((prop, val) => `${prop}${val}`);
+export const selectorFor = R.curry((prop, val) => `${prop}${val}`);
 const lineHeightStyleFrom = sizes => lineHeight => R.compose(
   R.objOf('lineHeight'),
   R.multiply(lineHeight),
