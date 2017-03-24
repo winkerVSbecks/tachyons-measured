@@ -6,13 +6,13 @@ const hasPrototype = R.has('prototype');
 const isReactComponent = R.propIs(Object, 'isReactComponent');
 const isClassComponent = R.allPass([isNotNil, hasPrototype, isReactComponent]);
 const isNotClassComponent = R.complement(isClassComponent);
-const doesnotHave = R.complement(R.has);
+const doesNotHave = R.complement(R.has);
 
 const isReferentiallyTransparentFunctionComponent = R.allPass([
   R.is(Function),
   isNotClassComponent,
-  doesnotHave('defaultProps'),
-  doesnotHave('contextTypes'),
+  doesNotHave('defaultProps'),
+  doesNotHave('contextTypes'),
 ]);
 
 export const createEagerElement = R.cond([
