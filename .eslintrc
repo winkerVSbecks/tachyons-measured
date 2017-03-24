@@ -1,0 +1,57 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [2, { "extensions": [".js"] }],
+    "react/forbid-prop-types": 0,
+    "react/require-default-props": 0,
+    "no-nested-ternary": 0,
+    "no-underscore-dangle": 0,
+    "no-unsafe-finally": 0,
+    "new-cap": 0,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": [2, {
+      "devDependencies": true,
+      "optionalDependencies": false,
+      "peerDependencies": false
+    }],
+    "no-param-reassign": 0,
+    "no-confusing-arrow": 0,
+    "no-bitwise": [2, { "int32Hint": true }],
+    "no-unused-expressions": 0,
+    "no-cond-assign": [2, "except-parens"],
+    "global-require": 0,
+    "no-extra-parens": [2, "functions"],
+    "generator-star-spacing": 0,
+    "no-constant-condition": ["error", { "checkLoops": false }],
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"]
+      }
+    }
+  },
+  "globals": {
+    "document": true,
+    "describe": true,
+    "expect": true,
+    "fetch": true,
+    "jest": true,
+    "it": true,
+    "navigator": true,
+    "beforeAll": true,
+    "beforeEach": true,
+    "afterAll": true,
+    "afterEach": true,
+    "test": true,
+    "jasmine": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "tachyons-msrd",
+  "version": "1.0.0",
+  "description": "higher order components for using tachyons",
+  "main": "src/index.js",
+  "repository": "https://github.com/winkerVSbecks/tachyons-msrd",
+  "author": "Varun Vachhar <varunvachhar@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.config.js",
+    "lint": "eslint src example"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.27.3",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "html-webpack-plugin": "^2.28.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "style-loader": "^0.16.0",
+    "tachyons": "^4.6.2",
+    "webpack": "^2.3.1",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "tachyons": "^4.6.2"
+  },
+  "dependencies": {
+    "ramda": "^0.23.0"
+  }
+}
