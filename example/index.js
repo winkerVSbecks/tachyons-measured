@@ -10,33 +10,36 @@ import {
   withSize,
   withBorder,
   withTypography,
-  withDefaultProps,
+  withDefaults,
+  withBaseStyles,
+  withMsrd,
 } from '../src';
 
 require('tachyons');
 
-export const Block = compose(
-  withBorder,
-  withSize,
-  withBackgroundColor(clrs),
-  withSpacing,
-)('div');
+export const Block = withMsrd(clrs)('div');
 
 export const Heading = compose(
-  withDefaultProps({ f: 3 }),
+  withDefaults({ f: 3 }),
   withTypography,
   withColor(clrs),
 )('h1');
 
 export const Copy = compose(
-  withDefaultProps({ f: 5, className: 'measure', lh: 'copy' }),
+  withDefaults({ f: 5, className: 'measure', lh: 'copy' }),
   withTypography,
   withColor(clrs),
 )('p');
 
+export const PageTitle = compose(
+  withTypography,
+  withBaseStyles('ttu tracked'),
+  withSpacing,
+)('h1');
+
 ReactDom.render(
   <div className="mw7 ph3 center dark-gray">
-    <h1 className="f6 mt5 ttu tracked mb4">tachyons msrd</h1>
+    <PageTitle mt={5} mb={4} f={6}>tachyons msrd</PageTitle>
     <Block className="flex" mt={3}>
       <Block mh={3} bg="light-red" w={4} h={4} />
       <Block mt={2} bg="light-yellow" w={4} h={4} />

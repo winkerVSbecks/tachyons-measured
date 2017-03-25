@@ -4,4 +4,6 @@ export * from '../src/with-color';
 export * from '../src/with-size';
 export * from '../src/with-border';
 export * from '../src/with-typography';
-export * from '../src/with-default-props';
+export * from '../src/with-defaults';
+export * from '../src/with-base-styles';
+export * from '../src/with-msrd';

@@ -37,9 +37,9 @@ function borderTransform({
   );
 }
 
-export const withBorder = component => createWithStyleHoc({
+export const withBorder = colors => component => createWithStyleHoc({
   name: 'withBorder',
   transformation: borderTransform,
-  propTypes: borderPropTypes,
+  propTypes: borderPropTypes(colors),
   component,
 });
