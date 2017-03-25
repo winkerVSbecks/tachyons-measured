@@ -3,7 +3,7 @@ import { PropTypes } from 'react';
 import { selectorFor } from './style-helper';
 import { cx, createWithStyleHoc } from './utils';
 
-const backgroundColorProps = colors => ({
+const backgroundColorPropTypes = colors => ({
   bg: PropTypes.oneOf(colors),
   className: PropTypes.any,
 });
@@ -15,13 +15,9 @@ function backgroundColorTransform({ className, bg, ...ownerProps }) {
   );
 }
 
-/**
- * HOC that allows you to configure
- * background color through props
- */
 export const withBackgroundColor = colors => component => createWithStyleHoc({
-  name: 'withWhiteSpace',
+  name: 'withBackgroundColor',
   transformation: backgroundColorTransform,
-  propTypes: backgroundColorProps(colors),
+  propTypes: backgroundColorPropTypes(colors),
   component,
 });

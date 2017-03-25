@@ -45,7 +45,7 @@ export const classesFor = R.compose(
  * provide a map where key is classname
  * and value is a boolean
  */
-export const tachyonsCompose = R.compose(
+export const composeClasses = R.compose(
   R.map(classFromTachyons),
   R.keys,
   R.filter(R.identity),

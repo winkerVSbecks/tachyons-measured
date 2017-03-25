@@ -39,10 +39,6 @@ function whiteSpaceTransformation({
   );
 }
 
-/**
- * HOC that allows you to configure
- * WhiteSpace styles through props
- */
 export const withWhiteSpace = component => createWithStyleHoc({
   name: 'withWhiteSpace',
   transformation: whiteSpaceTransformation,
