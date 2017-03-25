@@ -1,12 +1,10 @@
-export const lineHeights = {
-  solid: 1,
-  title: 125,
-  copy: 1.5,
-};
+export const lineHeights = ['solid', 'title', 'copy'];
 
 export const typeScale = [1, 2, 3, 4, 5, 6];
 
-export const whiteSpaceScale = [0, 1, 2, 3, 4, 5, 6];
+export const whiteSpaceScale = [0, 1, 2, 3, 4, 5, 6, '-headline',
+  '-subheadline'];
+export const negativeMarginScale = [1, 2, 3, 4, 5, 6];
 
 export const widths = [1, 2, 3, 4, 5, '-10', '-20', '-25', '-30', '-33', '-34',
   '-40', '-50', '-60', '-70', '-75', '-80', '-90', '-100', '-third',

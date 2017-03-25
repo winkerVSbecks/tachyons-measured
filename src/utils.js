@@ -27,7 +27,7 @@ const isReferentiallyTransparentFunctionComponent = R.allPass([
   doesNotHave('contextTypes'),
 ]);
 
-const createEagerElement = R.cond([
+export const createEagerElement = R.cond([
   [isReferentiallyTransparentFunctionComponent, R.call],
   [R.T, (Component, props) => <Component {...props} />],
 ]);

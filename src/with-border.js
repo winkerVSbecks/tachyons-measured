@@ -1,6 +1,6 @@
 import R from 'ramda';
 import { PropTypes } from 'react';
-import { selectorFor, classesFor, composeClasses } from './style-helper';
+import { classesFor, composeClasses } from './style-helper';
 import { cx, createWithStyleHoc } from './utils';
 import { border } from './scales';
 
