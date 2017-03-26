@@ -25,24 +25,3 @@ export const withTypography = component => createWithStyleHoc({
   propTypes: sizePropTypes,
   component,
 });
-
-// export const withHeadingType = withTypography({
-//   name: 'withHeadingType',
-//   baseStyles: [s.darkGray, s.ff_sectra, s.fw7],
-//   fontStyles: headingFontStyles,
-//   defaultSize: 2,
-// });
-//
-// export const withCopyType = withTypography({
-//   name: 'withCopyType',
-//   baseStyles: [s.darkGray, s.ff_sectra, s.fw4],
-//   fontStyles: copyFontStyles,
-//   defaultSize: 4,
-// });
-//
-// export const withSolidType = withTypography({
-//   name: 'withSolidType',
-//   baseStyles: [s.darkGray, s.ff_patron, s.fw4],
-//   fontStyles: solidFontStyles,
-//   defaultSize: 5,
-// });

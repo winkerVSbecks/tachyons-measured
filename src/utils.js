@@ -33,7 +33,7 @@ export const createEagerElement = R.cond([
 ]);
 
 // construct the display name for a HOC
-const displayName = (component, name) =>
+export const displayName = (component, name) =>
   `${name}(${component.displayName || component.name || component})`;
 
 /**
