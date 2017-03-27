@@ -45,7 +45,7 @@ ReactDom.render(
       <Block mt={2} bg="light-yellow" w={4} h={4} />
       <Block ml={4} nt={3} bg="light-green" w={4} h={4} />
       <Block
-        ml={2} mt={4}
+        ml={{ all: 4, ns: 3, m: 2, l: 1 }} mt={4}
         bg="washed-green"
         ba borderColor="lightest-blue" bw={1} r={3}
         rounded="top"

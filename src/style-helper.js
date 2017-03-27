@@ -1,33 +1,15 @@
-import R, { __ } from 'ramda';
-import { lineHeights } from './scales';
-
-const classFromTachyons = R.identity;
-const list = R.unapply(R.identity);
-
-export const selectorFor = R.curry((prop, val) => `${prop}${val}`);
-const lineHeightStyleFrom = sizes => lineHeight => R.compose(
-  R.objOf('lineHeight'),
-  R.multiply(lineHeight),
-  R.prop(__, sizes),
-);
-const lineHeightStyle = lineHeightStyleFrom({ lineHeights });
+import R from 'ramda';
+import { mQObjToSelectors } from './media-queries';
 
 const isPresent = R.complement(R.isNil);
+const hasMediaQuery = R.compose(R.is(Object), R.nth(1));
 
-/**
- * Get styles for a font size
- * and lineHeight pairing
- */
-const fontStyles = lineHeight => R.compose(
-  R.converge(list,
-    [lineHeightStyle(lineHeight), classFromTachyons],
-  ),
-  selectorFor('f'),
+export const selectorFor = R.curry((prop, val) => `${prop}${val}`);
+
+export const selectorForWithMQ = R.ifElse(hasMediaQuery,
+  R.apply(mQObjToSelectors),
+  R.apply(selectorFor),
 );
-
-export const headingFontStyles = fontStyles(lineHeights.title);
-export const copyFontStyles = fontStyles(lineHeights.copy);
-export const solidFontStyles = fontStyles(lineHeights.solid);
 
 /**
  * Get multiple tachyon classes
@@ -35,7 +17,7 @@ export const solidFontStyles = fontStyles(lineHeights.solid);
  * selector type and value is value
  */
 export const classesFor = R.compose(
-  R.map(R.apply(selectorFor)),
+  R.map(selectorForWithMQ),
   R.toPairs,
   R.filter(isPresent),
 );
@@ -46,7 +28,6 @@ export const classesFor = R.compose(
  * and value is a boolean
  */
 export const composeClasses = R.compose(
-  R.map(classFromTachyons),
   R.keys,
   R.filter(R.identity),
 );

@@ -3,9 +3,10 @@ import { PropTypes } from 'react';
 import { classesFor } from './style-helper';
 import { whiteSpaceScale, negativeMarginScale } from './scales';
 import { cx, createWithStyleHoc } from './utils';
+import { addMQSupport } from './media-queries';
 
-const spacingProp = PropTypes.oneOf(whiteSpaceScale);
-const negativeMarginProp = PropTypes.oneOf(negativeMarginScale);
+const spacingProp = addMQSupport(PropTypes.oneOf(whiteSpaceScale));
+const negativeMarginProp = addMQSupport(PropTypes.oneOf(negativeMarginScale));
 
 const spacingPropTypes = {
   ma: spacingProp,

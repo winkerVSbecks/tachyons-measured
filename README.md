@@ -76,3 +76,11 @@ full example: [codepen.io/winkerVSbecks/pen/LWBLYb](http://codepen.io/winkerVSbe
 tachyons-msrd attempts to extract this and other such patterns into HOC.
 
 Additionally, it helps break up the styles into multiple props. Which avoids `className` from becoming long and hard to read.
+
+### Related
+
+Inspiration for tachyons-msrd
+
++ [github.com/tachyons-css/tachyons](https://github.com/tachyons-css/tachyons)
++ [github.com/jxnblk/rebass](https://github.com/jxnblk/rebass)
++ [github.com/acdlite/recompose](https://github.com/acdlite/recompose)

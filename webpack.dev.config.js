@@ -16,6 +16,7 @@ const plugins = [
 ];
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: './example/index.js',
   resolve: {
     modules: [
