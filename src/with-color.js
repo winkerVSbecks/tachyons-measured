@@ -1,6 +1,6 @@
 import R from 'ramda';
 import { PropTypes } from 'react';
-import { selectorFor } from './style-helper';
+import { classesFor } from './style-helper';
 import { cx, createWithStyleHoc } from './utils';
 
 const colorPropTypes = colors => ({
@@ -10,7 +10,7 @@ const colorPropTypes = colors => ({
 
 function colorTransform({ className, color, ...ownerProps }) {
   return R.merge(
-    { className: cx([selectorFor('', color), className]) },
+    { className: cx([classesFor({ '': color }), className]) },
     ownerProps,
   );
 }

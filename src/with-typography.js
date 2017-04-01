@@ -1,6 +1,6 @@
 import R from 'ramda';
 import { PropTypes } from 'react';
-import { selectorFor } from './style-helper';
+import { classesFor } from './style-helper';
 import { typeScale, lineHeights } from './scales';
 import { cx, createWithStyleHoc } from './utils';
 
@@ -11,7 +11,7 @@ const sizePropTypes = {
 };
 
 function typographyTransform({ className, f, lh, ...ownerProps }) {
-  const type = [selectorFor('f', f), selectorFor('lh-', lh)];
+  const type = classesFor({ f, 'lh-': lh });
 
   return R.merge(
     { className: cx([type, className]) },

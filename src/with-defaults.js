@@ -1,10 +1,10 @@
 import { createEagerElement } from './utils';
 
 export const withDefaults = props => (component) => {
-  const withDefaults = ownerProps =>
+  const WithDefaults = ownerProps =>
     createEagerElement(component, ownerProps);
-  withDefaults.defaultProps = props;
-  withDefaults.propTypes = component.propTypes;
+  WithDefaults.defaultProps = props;
+  WithDefaults.propTypes = component.propTypes;
 
-  return withDefaults;
+  return WithDefaults;
 };
