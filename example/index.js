@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Block, Heading, Text, PageTitle } from './components';
-import { Card } from './card';
+import { CatCard } from './card';
 
 require('tachyons');
 
@@ -15,13 +15,15 @@ ReactDom.render(
       <Block
         ml={{ all: 4, ns: 3, m: 2, l: 1 }} mt={4}
         bg="washed-green"
-        ba borderColor="lightest-blue" bw={1} r={3}
-        rounded="top"
         w={4} h={4}
       />
     </Block>
 
-    <Card />
+    <Block className="flex">
+      <CatCard mr={2} />
+      <CatCard mr={2} />
+      <CatCard mr={2} />
+    </Block>
 
     <article className="pa3 pa5-ns">
       {/* f3 f1-m f-headline-l */}
