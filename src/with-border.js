@@ -4,12 +4,17 @@ import { classesFor, composeClasses } from './style-helper';
 import { cx, createWithStyleHoc } from './utils';
 import { border } from './scales';
 
+const borderType = PropTypes.oneOfType([
+  PropTypes.bool,
+  PropTypes.string,
+]);
+
 const borderPropTypes = colors => ({
-  ba: PropTypes.bool,
-  bl: PropTypes.bool,
-  br: PropTypes.bool,
-  bt: PropTypes.bool,
-  bb: PropTypes.bool,
+  ba: borderType,
+  bl: borderType,
+  br: borderType,
+  bt: borderType,
+  bb: borderType,
   bw: PropTypes.oneOf(border.widths),
   r: PropTypes.oneOf(border.radii),
   rounded: PropTypes.oneOf(['bottom', 'top', 'right', 'left']),

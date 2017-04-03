@@ -1,17 +1,25 @@
-import R from 'ramda';
+import R, { __ } from 'ramda';
 import { PropTypes } from 'react';
 import { classesFor } from './style-helper';
-import { typeScale, lineHeights } from './scales';
-import { cx, createWithStyleHoc } from './utils';
+import { cx, createWithStyleHoc, mapIfObj } from './utils';
+import { addMQSupport } from './media-queries';
+
+export const lineHeights = ['solid', 'title', 'copy'];
+export const typeScale = [1, 2, 3, 4, 5, 6, 7, '-headline',
+  '-subheadline'];
 
 const sizePropTypes = {
-  f: PropTypes.oneOf(typeScale),
+  f: addMQSupport(PropTypes.oneOf(typeScale)),
   lh: PropTypes.oneOf(lineHeights),
   className: PropTypes.any,
 };
 
+const normalizeFontSizes = mapIfObj(
+  R.when(R.contains(__, ['headline', 'subheadline']),
+    R.concat('-')));
+
 function typographyTransform({ className, f, lh, ...ownerProps }) {
-  const type = classesFor({ f, 'lh-': lh });
+  const type = classesFor({ f: normalizeFontSizes(f), 'lh-': lh });
 
   return R.merge(
     { className: cx([type, className]) },

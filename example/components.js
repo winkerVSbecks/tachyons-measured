@@ -1,5 +1,4 @@
 import { compose } from 'ramda';
-
 import clrs from './clrs';
 import {
   withSpacing,
@@ -11,6 +10,7 @@ import {
 } from '../src';
 
 export const Block = withMsrd(clrs)('div');
+export const Article = withMsrd(clrs)('article');
 
 export const Heading = compose(
   withDefaults({ f: 3 }),

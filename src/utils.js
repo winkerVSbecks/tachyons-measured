@@ -8,6 +8,11 @@ const isClassComponent = R.allPass([isNotNil, hasPrototype, isReactComponent]);
 const isNotClassComponent = R.complement(isClassComponent);
 const doesNotHave = R.complement(R.has);
 
+export const mapIfObj = fn => R.ifElse(R.is(Object),
+  R.map(fn),
+  fn,
+);
+
 /**
  * Compose classnames
  */

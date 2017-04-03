@@ -1,6 +1,14 @@
 import React from 'react';
-import { Block, Heading, Text } from './components';
-import { withDefaults } from '../src';
+import { compose } from 'ramda';
+import { Article, Heading, Text } from './components';
+import clrs from './clrs';
+import {
+  withSpacing,
+  withDefaults,
+  withBaseStyles,
+  withSize,
+  withBorder,
+} from '../src';
 
 export const Card = withDefaults({
   pa: { all: 3, ns: 4 },
@@ -9,14 +17,22 @@ export const Card = withDefaults({
   borderColor: 'black-10',
   r: 3,
   bg: 'white',
-})(Block);
+})(Article);
+
+export const Media = compose(
+  withSpacing,
+  withSize,
+  withBorder(clrs),
+  withBaseStyles('dib'),
+)('img');
 
 export const CatCard = props => (
   <Card {...props}>
     <div className="tc">
-      <img
+      <Media
         src="http://tachyons.io/img/avatar_1.jpg"
-        className="br-100 h3 w3 dib"
+        r="-100"
+        h={3} w={3}
         alt="kitty staring at you"
       />
       <Heading f={4}>Mimi Whitehouse</Heading>

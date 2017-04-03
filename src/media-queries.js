@@ -1,21 +1,24 @@
 import R from 'ramda';
 import { PropTypes } from 'react';
 
-export const supportedSelectors = ['ba', 'bt', 'br', 'bb', 'bl', 'bn', 'r',
-  'rounded', 'bw', 'fw', 'h', 'lh', 'w', 'pa', 'pl', 'pr', 'pb', 'pt', 'pv',
-  'ph', 'ma', 'ml', 'mr', 'mb', 'mt', 'mv', 'mh', 'na', 'nl', 'nr', 'nb', 'nt',
-  'f'];
+export const supportedSelectors = [
+  'ba', 'bt', 'br', 'bb', 'bl', 'bn', 'r', 'rounded', 'bw',
+  'f', 'fw', 'lh',
+  'h', 'w',
+  'pa', 'pl', 'pr', 'pb', 'pt', 'pv', 'ph',
+  'ma', 'ml', 'mr', 'mb', 'mt', 'mv', 'mh',
+  'na', 'nl', 'nr', 'nb', 'nt'];
 
-const mqProp = PropTypes.shape({
-  all: PropTypes.any,
-  ns: PropTypes.any,
-  m: PropTypes.any,
-  l: PropTypes.any,
+const mqProp = propType => PropTypes.shape({
+  all: propType,
+  ns: propType,
+  m: propType,
+  l: propType,
 });
 
 export const addMQSupport = propType => PropTypes.oneOfType([
   propType,
-  mqProp,
+  mqProp(propType),
 ]);
 
 const mqType = type => R.compose(R.equals(type), R.head);

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Block, Heading, Text, PageTitle } from './components';
+import { Block, Heading, Text, PageTitle, Article } from './components';
 import { CatCard } from './card';
 
 require('tachyons');
@@ -22,12 +22,11 @@ ReactDom.render(
     <Block className="flex">
       <CatCard mr={2} />
       <CatCard mr={2} />
-      <CatCard mr={2} />
+      <CatCard />
     </Block>
 
-    <article className="pa3 pa5-ns">
-      {/* f3 f1-m f-headline-l */}
-      <Heading color="navy">
+    <Article pa={{ all: 3, ns: 5 }} color="dark-gray">
+      <Heading f={{ all: 3, m: 1, l: '-headline' }}>
         Title
       </Heading>
       <Text>
@@ -42,7 +41,7 @@ ReactDom.render(
         vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
         no sea takimata sanctus est Lorem ipsum dolor sit amet.
       </Text>
-    </article>
+    </Article>
   </div>,
   document.getElementById('root'),
 );
