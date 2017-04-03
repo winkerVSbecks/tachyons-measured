@@ -3,11 +3,12 @@ import { PropTypes } from 'react';
 import { classesFor, composeClasses } from './style-helper';
 import { cx, createWithStyleHoc } from './utils';
 import { border } from './scales';
+import { addMQSupport } from './media-queries';
 
-const borderType = PropTypes.oneOfType([
+const borderType = addMQSupport(PropTypes.oneOfType([
   PropTypes.bool,
   PropTypes.string,
-]);
+]));
 
 const borderPropTypes = colors => ({
   ba: borderType,
@@ -15,16 +16,17 @@ const borderPropTypes = colors => ({
   br: borderType,
   bt: borderType,
   bb: borderType,
-  bw: PropTypes.oneOf(border.widths),
-  r: PropTypes.oneOf(border.radii),
-  rounded: PropTypes.oneOf(['bottom', 'top', 'right', 'left']),
+  bn: addMQSupport(PropTypes.bool),
+  bw: addMQSupport(PropTypes.oneOf(border.widths)),
+  r: addMQSupport(PropTypes.oneOf(border.radii)),
+  rounded: addMQSupport(PropTypes.oneOf(['bottom', 'top', 'right', 'left'])),
   borderColor: PropTypes.oneOf(colors),
   className: PropTypes.any,
 });
 
 function borderTransform({
   className,
-  ba, bl, br, bt, bb,
+  ba, bl, br, bt, bb, bn,
   bw,
   r,
   rounded,
@@ -32,7 +34,7 @@ function borderTransform({
   ...ownerProps
 }) {
   const borderStyles = [
-    composeClasses({ ba, bl, br, bt, bb }),
+    composeClasses({ ba, bl, br, bt, bb, bn }),
     classesFor({ br: r, 'br--': rounded, 'b--': borderColor, bw }),
   ];
 

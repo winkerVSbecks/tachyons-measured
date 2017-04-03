@@ -10,7 +10,7 @@ export const typeScale = [1, 2, 3, 4, 5, 6, 7, '-headline',
 
 const sizePropTypes = {
   f: addMQSupport(PropTypes.oneOf(typeScale)),
-  lh: PropTypes.oneOf(lineHeights),
+  lh: addMQSupport(PropTypes.oneOf(lineHeights)),
   className: PropTypes.any,
 };
 

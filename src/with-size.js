@@ -3,10 +3,11 @@ import { PropTypes } from 'react';
 import { classesFor } from './style-helper';
 import { widths, heights } from './scales';
 import { cx, createWithStyleHoc } from './utils';
+import { addMQSupport } from './media-queries';
 
 const sizePropTypes = {
-  w: PropTypes.oneOf(widths),
-  h: PropTypes.oneOf(heights),
+  w: addMQSupport(PropTypes.oneOf(widths)),
+  h: addMQSupport(PropTypes.oneOf(heights)),
   className: PropTypes.any,
 };
 

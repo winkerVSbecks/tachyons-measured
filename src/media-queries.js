@@ -2,18 +2,21 @@ import R from 'ramda';
 import { PropTypes } from 'react';
 
 export const supportedSelectors = [
-  'ba', 'bt', 'br', 'bb', 'bl', 'bn', 'r', 'rounded', 'bw',
-  'f', 'fw', 'lh',
+  // 🚫
+  'r', 'rounded', 'bw',
+  // ✅
+  'ba', 'bt', 'br', 'bb', 'bl', 'bn',
+  'f', 'lh',
   'h', 'w',
   'pa', 'pl', 'pr', 'pb', 'pt', 'pv', 'ph',
   'ma', 'ml', 'mr', 'mb', 'mt', 'mv', 'mh',
   'na', 'nl', 'nr', 'nb', 'nt'];
 
 const mqProp = propType => PropTypes.shape({
-  all: propType,
-  ns: propType,
-  m: propType,
   l: propType,
+  m: propType,
+  ns: propType,
+  all: propType,
 });
 
 export const addMQSupport = propType => PropTypes.oneOfType([
