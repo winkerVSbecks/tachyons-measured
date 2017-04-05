@@ -2,9 +2,7 @@ import R from 'ramda';
 import { PropTypes } from 'react';
 
 export const supportedSelectors = [
-  // 🚫
   'r', 'rounded', 'bw',
-  // ✅
   'ba', 'bt', 'br', 'bb', 'bl', 'bn',
   'f', 'lh',
   'h', 'w',
