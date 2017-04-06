@@ -1,5 +1,5 @@
 import React from 'react';
-import R from 'ramda';
+import R, { __ } from 'ramda';
 
 export const isPresent = R.complement(R.isNil);
 const hasPrototype = R.has('prototype');
@@ -8,10 +8,14 @@ const isClassComponent = R.allPass([isPresent, hasPrototype, isReactComponent]);
 const isNotClassComponent = R.complement(isClassComponent);
 const doesNotHave = R.complement(R.has);
 
-export const mapIfObj = fn => R.ifElse(R.is(Object),
+const mapIfObj = fn => R.ifElse(R.is(Object),
   R.map(fn),
   fn,
 );
+
+export const normalizeClassNames = options => mapIfObj(
+  R.when(R.contains(__, options),
+    R.concat('-')));
 
 /**
  * Compose classnames

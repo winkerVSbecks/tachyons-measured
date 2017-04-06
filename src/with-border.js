@@ -1,37 +1,28 @@
 import R, { __ } from 'ramda';
 import { PropTypes } from 'react';
 import { classesFor } from './style-helper';
-import { cx, createWithStyleHoc, isPresent, mapIfObj } from './utils';
+import { cx, createWithStyleHoc, isPresent, normalizeClassNames } from './utils';
 import { addMQSupport } from './media-queries';
 
+/**
+ * Scale
+ */
 export const border = {
   radii: [0, 1, 2, 3, 4, 100, 'pill'],
   styles: ['none', 'dotted', 'dashed', 'solid'],
   widths: [0, 1, 2, 3, 4, 5],
 };
-const normalizeRadii = mapIfObj(
-  R.when(R.contains(__, [100, 'pill']),
-    R.concat('-')));
 
+/**
+ * Normalize classnames to add a `-`
+ * prefix when needed
+ */
+const normalizeRadii = normalizeClassNames([100, 'pill']);
 
-const borderType = colors => addMQSupport(PropTypes.oneOfType([
-  PropTypes.bool,
-  PropTypes.oneOf(colors),
-]));
-
-const borderPropTypes = colors => ({
-  ba: borderType(colors),
-  bl: borderType(colors),
-  br: borderType(colors),
-  bt: borderType(colors),
-  bb: borderType(colors),
-  bn: addMQSupport(PropTypes.bool),
-  bw: addMQSupport(PropTypes.oneOf(border.widths)),
-  radius: PropTypes.oneOf(border.radii),
-  rounded: addMQSupport(PropTypes.oneOf(['bottom', 'top', 'right', 'left'])),
-  className: PropTypes.any,
-});
-
+/**
+ * Parse border declaration to get
+ * border type and color values
+ */
 const hasMultipleDeclarations = R.compose(R.gt(__, 1), R.length);
 const headOr = def => R.compose(R.defaultTo(def), R.head);
 const warnAboutMultipleDeclarations = R.tap(() => {
@@ -49,6 +40,9 @@ const borderDeclaration = R.compose(
   R.filter(isPresent),
 );
 
+/**
+ * withBorder HOC
+ */
 function borderTransform({
   className,
   ba, bl, br, bt, bb, bn,
@@ -73,6 +67,24 @@ function borderTransform({
     ownerProps,
   );
 }
+
+const borderType = colors => addMQSupport(PropTypes.oneOfType([
+  PropTypes.bool,
+  PropTypes.oneOf(colors),
+]));
+
+const borderPropTypes = colors => ({
+  ba: borderType(colors),
+  bl: borderType(colors),
+  br: borderType(colors),
+  bt: borderType(colors),
+  bb: borderType(colors),
+  bn: addMQSupport(PropTypes.bool),
+  bw: addMQSupport(PropTypes.oneOf(border.widths)),
+  radius: PropTypes.oneOf(border.radii),
+  rounded: addMQSupport(PropTypes.oneOf(['bottom', 'top', 'right', 'left'])),
+  className: PropTypes.any,
+});
 
 export const withBorder = colors => component => createWithStyleHoc({
   name: 'withBorder',
