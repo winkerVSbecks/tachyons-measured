@@ -1,7 +1,7 @@
 import R from 'ramda';
 import { mQObjToSelectors } from './media-queries';
+import { isPresent } from './utils';
 
-const isPresent = R.complement(R.isNil);
 const hasMediaQuery = R.compose(R.is(Object), R.nth(1));
 
 export const selectorFor = R.curry((prop, val) => `${prop}${val}`);

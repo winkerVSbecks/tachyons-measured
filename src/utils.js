@@ -1,10 +1,10 @@
 import React from 'react';
 import R from 'ramda';
 
-const isNotNil = R.complement(R.isNil);
+export const isPresent = R.complement(R.isNil);
 const hasPrototype = R.has('prototype');
 const isReactComponent = R.propIs(Object, 'isReactComponent');
-const isClassComponent = R.allPass([isNotNil, hasPrototype, isReactComponent]);
+const isClassComponent = R.allPass([isPresent, hasPrototype, isReactComponent]);
 const isNotClassComponent = R.complement(isClassComponent);
 const doesNotHave = R.complement(R.has);
 

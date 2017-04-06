@@ -13,9 +13,8 @@ import {
 export const Card = withDefaults({
   pa: { all: 3, ns: 4 },
   mv: 3,
-  ba: true,
-  borderColor: 'black-10',
-  r: 3,
+  ba: 'black-10',
+  radius: 3,
   bg: 'white',
 })(Article);
 
@@ -31,7 +30,7 @@ export const CatCard = props => (
     <div className="tc">
       <Media
         src="http://tachyons.io/img/avatar_1.jpg"
-        r="-100"
+        radius={100}
         h={3} w={3}
         alt="kitty staring at you"
       />

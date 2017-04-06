@@ -26,7 +26,7 @@ ReactDom.render(
     </Block>
 
     <Article pa={{ all: 3, ns: 5 }} color="dark-gray">
-      <Heading f={{ all: 3, m: 1, l: '-headline' }}>
+      <Heading f={{ all: 3, m: 1, l: 'headline' }}>
         Title
       </Heading>
       <Text>

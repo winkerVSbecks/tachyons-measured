@@ -6,9 +6,3 @@ export const widths = [1, 2, 3, 4, 5, '-10', '-20', '-25', '-30', '-33', '-34',
   '-two-thirds', '-auto'];
 
 export const heights = [1, 2, 3, 4, 5, '-25', '-50', '-75', '-100', '-auto'];
-
-export const border = {
-  radii: [0, 1, 2, 3, 4, '-100', '-pill'],
-  styles: ['none', 'dotted', 'dashed', 'solid'],
-  widths: [0, 1, 2, 3, 4, 5],
-};

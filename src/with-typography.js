@@ -5,8 +5,7 @@ import { cx, createWithStyleHoc, mapIfObj } from './utils';
 import { addMQSupport } from './media-queries';
 
 export const lineHeights = ['solid', 'title', 'copy'];
-export const typeScale = [1, 2, 3, 4, 5, 6, 7, '-headline',
-  '-subheadline'];
+export const typeScale = [1, 2, 3, 4, 5, 6, 7, 'headline', 'subheadline'];
 
 const sizePropTypes = {
   f: addMQSupport(PropTypes.oneOf(typeScale)),
