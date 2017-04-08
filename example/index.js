@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Block, Heading, Text, PageTitle, Article } from './components';
 import { CatCard } from './card';
+import { CatProductCard } from './product-card';
 
 require('tachyons');
 
@@ -23,6 +24,10 @@ ReactDom.render(
       <CatCard mr={2} />
       <CatCard mr={2} />
       <CatCard />
+    </Block>
+
+    <Block className="flex">
+      <CatProductCard />
     </Block>
 
     <Article pa={{ all: 3, ns: 5 }} color="dark-gray">

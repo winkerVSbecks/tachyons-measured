@@ -10,7 +10,7 @@ import {
   withBorder,
 } from '../src';
 
-export const Card = withDefaults({
+export const ProfileCard = withDefaults({
   pa: { all: 3, ns: 4 },
   mv: 3,
   ba: 'black-10',
@@ -26,7 +26,7 @@ export const Media = compose(
 )('img');
 
 export const CatCard = props => (
-  <Card {...props}>
+  <ProfileCard {...props}>
     <div className="tc">
       <Media
         src="http://tachyons.io/img/avatar_1.jpg"
@@ -45,5 +45,5 @@ export const CatCard = props => (
       She loves to get chin scratches and will
       roll around on the floor waiting for you give her more of them.
     </Text>
-  </Card>
+  </ProfileCard>
 );

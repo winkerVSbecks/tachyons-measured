@@ -54,13 +54,16 @@ function borderTransform({
   const [type, value] = borderDeclaration({ ba, bl, br, bt, bb, bn });
   const borderColor = R.is(Boolean, value) ? undefined : value;
 
-  const borderStyles = classesFor({
-    [type]: '',
+  const base = {
     br: normalizeRadii(radius),
     'br--': rounded,
     'b--': borderColor,
     bw,
-  });
+  };
+
+  const classList = type ? R.merge(base, { [type]: '' }) : base;
+
+  const borderStyles = classesFor(classList);
 
   return R.merge(
     { className: cx([borderStyles, className]) },
