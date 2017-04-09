@@ -108,6 +108,37 @@ const Text = withTypography('p');;
 ```
 
 #### `withBorder`
+```js
+withBorder(
+  colors: Array<string>
+): HigherOrderComponent
+```
+Allows you to set border styles using props. You will have to provide it a list of colour names that you are using in your project.
+
+```js
+const clrs = ['medium-gray', 'red', 'green', 'blue'];
+const Div = withBorder(clrs)('div');
+
+<Div
+  ba="gray" bw={2}
+  radius={{ l: 1, m: 2, ns: 100, all: 4 }}
+  rounded={{ l: 'bottom', m: 'top', ns: 'right', all: 'left' }}
+  className="myClass my-other-class"
+/>
+```
+
+| Prop | Type | MQ Support  |
+|---|---|---|
+| `ba` | boolean or color name   | 🚫 |
+| `bl` | boolean or color name | 🚫 |
+| `br` | boolean or color name | 🚫 |
+| `bt` | boolean or color name | 🚫 |
+| `bb` | boolean or color name | 🚫 |
+| `bn` | boolean | 🚫 |
+| `bw`  | [border widths](http://tachyons.io/docs/themes/borders)  | ✅ |
+| `radius` | [border radius](http://tachyons.io/docs/themes/border-radius) | ✅ |
+| `rounded` | `oneOf(['bottom', 'top', - 'right', 'left'])` | ✅ |
+
 #### `withDefaults`
 #### `withBaseStyles`
 #### `withMsrd`
