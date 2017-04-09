@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<button
+  ba="black-10"
+  bg="white"
+  className="myClass my-other-class"
+  color="dark-gray"
+  onClick={[Function]}
+  radius={2}
+  type="button"
+/>
+`;
+
+exports[`Div 1`] = `
+<div
+  bn={true}
+  className="myClass my-other-class"
+  f={6}
+  lh="copy"
+  mv={4}
+/>
+`;
