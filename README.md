@@ -2,6 +2,23 @@
 
 A set of higher order components for creating stateless functional UI components using tachyons.
 
+### Media Query Support
+The following properties support the media query syntax:
+- `r`, `rounded`, `bw`
+- `f`, `lh`
+- `h`, `w`
+- `pa`, `pl`, `pr`, `pb`, `pt`, `pv`, `ph`
+- `ma`, `ml`, `mr`, `mb`, `mt`, `mv`, `mh`
+- `na`, `nl`, `nr`, `nb`, `nt`
+
+This means that you can either provide regular values – such as a scale step number and literal values – or an object which specifies values by breakpoints.
+
+For example: `<Text f={1} />` or `<Text f={{ all: 3, ns: 2, m: 1, l: 'headline' }} />`
+
+`all`: All breakpoints (unless otherwise specified with another breakpoint)
+`ns`: Not small
+`m`: Medium
+`l`: Large
 
 ### API
 
