@@ -7,8 +7,8 @@ import { addMQSupport } from './media-queries';
 /**
  * Scale
  */
-export const whiteSpaceScale = [0, 1, 2, 3, 4, 5, 6];
-export const negativeMarginScale = [1, 2, 3, 4, 5, 6];
+export const whiteSpaceScale = [0, 1, 2, 3, 4, 5, 6, 7];
+export const negativeMarginScale = [1, 2, 3, 4, 5, 6, 7];
 
 /**
  * withSpacing HOC

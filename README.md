@@ -1,13 +1,63 @@
 📏 📐 tachyons-msrd
 
-A set of higher order components for using tachyons.
+A set of higher order components for creating stateless functional UI components using tachyons.
 
 
 ### API
 
 #### `withSpacing`
+```js
+withSpacing(): HigherOrderComponent
+```
+Exposes the [spacing scale](http://tachyons.io/docs/layout/spacing) as props.
+
+```js
+const Div = withSpacing('div');
+
+<Div
+  mh={3} mv={{ l: 4, m: 3, ns: 2, all: 1 }}
+  nl={{ l: 3, m: 2, ns: 4, all: 1 }}
+  pr={4} pl={4} pv={2}
+  className="myClass my-other-class"
+/>
+```
+
 #### `withBackgroundColor`
+```js
+withBackgroundColor(
+  colors: Array<string>
+): HigherOrderComponent
+```
+Allows you to set the background color using the `bg` prop.
+
+```js
+const clrs = ['red', 'green', 'blue', 'washed-yellow'];
+const Div = withBackgroundColor(clrs)('div');
+
+<Div
+  bg="washed-yellow"
+  className="myClass my-other-class"
+/>
+```
+
 #### `withColor`
+```js
+withColor(
+  colors: Array<string>
+): HigherOrderComponent
+```
+Allows you to set the font color using the `color` prop.
+
+```js
+const clrs = ['medium-gray', 'red', 'green', 'blue'];
+const Text = withColor(clrs)('p');
+
+<Text
+  color="medium-gray"
+  className="myClass my-other-class"
+/>
+```
+
 #### `withSize`
 #### `withBorder`
 #### `withTypography`
@@ -17,6 +67,23 @@ A set of higher order components for using tachyons.
 
 
 ### Why?
+
+1. It allows you to quickly create styled and/or stateless functional UI components which use tachyons for styling.
+
+2. It helps break up the styles into multiple props. This avoids `className` from becoming long and hard to read.
+
+    ```js
+    <Button
+      f={4} lh="solid"
+      bg="near-white" color="black-60"
+      br="3" rounded="top"
+      mv={0} pv={2} ph={3}
+    />
+    ```
+
+3. It enforces typechecking using `propTypes`. This helps catch values not supported by tachyons.
+
+4. It makes it easier to provide defaults (see the explanation below).
 
 When building components we often want to provide some base styling and then allow the user to override some of that styling. This can be challenging to achieve by providing all the overriding-styles through one prop. For example:
 
@@ -73,14 +140,12 @@ const Button = ({
 
 full example: [codepen.io/winkerVSbecks/pen/LWBLYb](http://codepen.io/winkerVSbecks/pen/LWBLYb?editors=0010)
 
-tachyons-msrd attempts to extract this and other such patterns into HOC.
-
-Additionally, it helps break up the styles into multiple props. Which avoids `className` from becoming long and hard to read.
 
 ### Related
 
 Inspiration for tachyons-msrd
 
++ [tachyons-react](https://github.com/tachyons-react/tachyons-react)
 + [github.com/tachyons-css/tachyons](https://github.com/tachyons-css/tachyons)
 + [github.com/jxnblk/rebass](https://github.com/jxnblk/rebass)
 + [github.com/acdlite/recompose](https://github.com/acdlite/recompose)
