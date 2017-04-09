@@ -1,8 +1,8 @@
-📏 📐 tachyons-msrd
+# 📏 📐 tachyons-msrd
 
 A set of higher order components for creating stateless functional UI components using tachyons.
 
-- [### Why?](#api)
+- [Usage & Example](#)
 - [API](#api)
   - [Media Query Support](#media-query-support)
   - [Higher Order Components](#higher-order-components)
@@ -10,6 +10,7 @@ A set of higher order components for creating stateless functional UI components
 - [Why?](#why?)
 - [Inspired by and Related to](#inspired-by-and-related-to)
 
+### Usage & Example
 
 ## API
 
@@ -245,24 +246,31 @@ const Title = compose(
 #### `withMsrd`
 ```js
 withMsrd(
-  defaultsForProps: Object
+  colors: Array<string>
 ): HigherOrderComponent
 ```
-Allows you to provide default values for any props.
+A composition of `withSpacing`, `withBackgroundColor(colors)`, `withColor(colors)`, `withSize`, `withBorder(colors)` and `withTypography`.
 
 ```js
-const Title = compose(
-  withTypography,
-  withDefaults({ f: 1, lh: 'title' }),
-)('h1');
+const clrs = ['white', 'red', 'green', 'blue'];
+export const Block = withMsrd(clrs)('div');
 
-// Will receive f as 1 and lh as 'title'
-<Title className="myClass my-other-class" />
-// Will receive f as 2 and lh as 'title'
-<Title f={2} className="myClass my-other-class" />
+<Block
+  f={{ l: 4, m: 3, ns: 2, all: 1 }}
+  lh="copy"
+  mh={3} mv={2} mt={4} nl={3}
+  pa={{ l: 4, m: 4, ns: 3, all: 2 }}
+  bg="blue"
+  color="white"
+  w={5}
+  h={{ l: 50, m: 4, ns: 3, all: 2 }}
+  bb="gray" bw={{ l: 1, m: 2, ns: 3, all: 4 }}
+  radius="pill"
+  rounded="top"
+/>
+```
 
-
-### Why?
+## Why?
 
 1. It allows you to quickly create styled and/or stateless functional UI components which use tachyons for styling.
 
