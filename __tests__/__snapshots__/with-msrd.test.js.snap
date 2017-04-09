@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<button
+  className="f4-l f3-m f2-ns f1 lh-copy br-pill br--top b--gray bw1-l bw2-m bw3-ns bw4 bb w5 h-50-l h4-m h3-ns h2 purple bg-washed-yellow mt4 mv2 mh3 nl3 pa4-l pa4-m pa3-ns pa2 myClass my-other-class"
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`Div 1`] = `
+<div
+  className="f-subheadline lh-copy-l lh-title-m lh-solid-ns lh-copy br1-l br2-m br-100-ns br4 br--bottom-l br--top-m br--right-ns br--left bw2 ba w5-l w4-m w-third-ns w3 h5 purple bg-washed-yellow mv4-l mv3-m mv2-ns mv1 mh3 nl3-l nl2-m nl4-ns nl1 pl4 pr4 pv2 myClass my-other-class"
+/>
+`;
