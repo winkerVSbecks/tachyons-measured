@@ -2,6 +2,17 @@
 
 A set of higher order components for creating stateless functional UI components using tachyons.
 
+- [### Why?](#api)
+- [API](#api)
+  - [Media Query Support](#media-query-support)
+  - [Higher Order Components](#higher-order-components)
+  - [Eager Evaluation](#eager-evaluation)
+- [Why?](#why?)
+- [Inspired by and Related to](#inspired-by-and-related-to)
+
+
+## API
+
 ### Media Query Support
 The following properties support the media query syntax:
 - `r`, `rounded`, `bw`
@@ -20,7 +31,32 @@ For example: `<Text f={1} />` or `<Text f={{ all: 3, ns: 2, m: 1, l: 'headline' 
 `m`: Medium
 `l`: Large
 
-### API
+### Higher Order Components
+
+- [`withBaseStyles`](#withbasestyles)
+- [`withSpacing`](#withspacing)
+- [`withBackgroundColor`](#withbackgroundcolor)
+- [`withColor`](#withcolor)
+- [`withSize`](#withsize)
+- [`withTypography`](#withtypography)
+- [`withBorder`](#withborder)
+- [`withDefaults`](#withdefaults)
+- [`withMsrd`](#withmsrd)
+
+#### `withBaseStyles`
+```js
+withBaseStyles(
+  baseStyles: Array<string> or string
+): HigherOrderComponent
+```
+HOC for creating a styled component with a set of classNames applied to it.
+
+```js
+const ButtonLink = compose('f6 link dim br1 ph3 pv2 mb2 dib white bg-black')('a');
+
+<ButtonLink>Link Text</ButtonLink>
+```
+
 
 #### `withSpacing`
 ```js
@@ -186,8 +222,44 @@ const Div = withBorder(clrs)('div');
 
 
 #### `withDefaults`
-#### `withBaseStyles`
+```js
+withDefaults(
+  defaultsForProps: Object
+): HigherOrderComponent
+```
+Allows you to provide default values for any props.
+
+```js
+const Title = compose(
+  withTypography,
+  withDefaults({ f: 1, lh: 'title' }),
+)('h1');
+
+// Will receive f as 1 and lh as 'title'
+<Title className="myClass my-other-class" />
+// Will receive f as 2 and lh as 'title'
+<Title f={2} className="myClass my-other-class" />
+```
+
+
 #### `withMsrd`
+```js
+withMsrd(
+  defaultsForProps: Object
+): HigherOrderComponent
+```
+Allows you to provide default values for any props.
+
+```js
+const Title = compose(
+  withTypography,
+  withDefaults({ f: 1, lh: 'title' }),
+)('h1');
+
+// Will receive f as 1 and lh as 'title'
+<Title className="myClass my-other-class" />
+// Will receive f as 2 and lh as 'title'
+<Title f={2} className="myClass my-other-class" />
 
 
 ### Why?
@@ -265,9 +337,7 @@ const Button = ({
 full example: [codepen.io/winkerVSbecks/pen/LWBLYb](http://codepen.io/winkerVSbecks/pen/LWBLYb?editors=0010)
 
 
-### Related
-
-Inspiration for tachyons-msrd
+### Inspired by and Related to
 
 + [tachyons-react](https://github.com/tachyons-react/tachyons-react)
 + [github.com/tachyons-css/tachyons](https://github.com/tachyons-css/tachyons)
