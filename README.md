@@ -39,6 +39,29 @@ const Div = withSpacing('div');
 />
 ```
 
+| Prop | Type | MQ Support |
+|---|---|---|
+| `ma` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `mt` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `ml` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `mr` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `mb` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `mv` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `mh` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `na` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `nt` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `nl` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `nr` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `nb` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `pa` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `pt` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `pl` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `pr` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `pb` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `pv` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+| `ph` | oneOf([0, 1, 2, 3, 4, 5, 6, 7]) | 🚫 |
+
+
 #### `withBackgroundColor`
 ```js
 withBackgroundColor(
@@ -56,6 +79,11 @@ const Div = withBackgroundColor(clrs)('div');
   className="myClass my-other-class"
 />
 ```
+
+| Prop | Type | MQ Support |
+|---|---|---|
+| `bg` | oneOf([...<list of colors provided>]) | 🚫 |
+
 
 #### `withColor`
 ```js
@@ -75,6 +103,11 @@ const Text = withColor(clrs)('p');
 />
 ```
 
+| Prop | Type | MQ Support |
+|---|---|---|
+| `color` | oneOf([...<list of colors provided>]) | 🚫 |
+
+
 #### `withSize`
 ```js
 withSize(): HigherOrderComponent
@@ -91,6 +124,12 @@ const Div = withSize('div');;
 />
 ```
 
+| Prop | Type | MQ Support |
+|---|---|---|
+| `w` | oneOf([1, 2, 3, 4, 5, 10, 20, 25, 30, 33, 34, 40, 50, 60, 70, 75, 80, 90, 100, 'third', 'two-thirds', 'auto']) | ✅ |
+| `h` | oneOf([1, 2, 3, 4, 5, 25, 50, 75, 100, 'auto']) | ✅ |
+
+
 #### `withTypography`
 ```js
 withTypography(): HigherOrderComponent
@@ -106,6 +145,12 @@ const Text = withTypography('p');;
   className="myClass my-other-class"
 />
 ```
+
+| Prop | Type | MQ Support |
+|---|---|---|
+| `f` | oneOf([1, 2, 3, 4, 5, 6, 7, 'headline', 'subheadline']) | ✅ |
+| `lh` | oneOf(['solid', 'title', 'copy']) | ✅ |
+
 
 #### `withBorder`
 ```js
@@ -127,17 +172,18 @@ const Div = withBorder(clrs)('div');
 />
 ```
 
-| Prop | Type | MQ Support  |
+| Prop | Type | MQ Support |
 |---|---|---|
-| `ba` | boolean or color name   | 🚫 |
-| `bl` | boolean or color name | 🚫 |
-| `br` | boolean or color name | 🚫 |
-| `bt` | boolean or color name | 🚫 |
-| `bb` | boolean or color name | 🚫 |
+| `ba` | boolean or oneOf([...<list of colors provided>]) | 🚫 |
+| `bl` | boolean or oneOf([...<list of colors provided>]) | 🚫 |
+| `br` | boolean or oneOf([...<list of colors provided>]) | 🚫 |
+| `bt` | boolean or oneOf([...<list of colors provided>]) | 🚫 |
+| `bb` | boolean or oneOf([...<list of colors provided>]) | 🚫 |
 | `bn` | boolean | 🚫 |
-| `bw`  | [border widths](http://tachyons.io/docs/themes/borders)  | ✅ |
-| `radius` | [border radius](http://tachyons.io/docs/themes/border-radius) | ✅ |
+| `bw`  | oneOf([[0, 1, 2, 3, 4, 5]]) | ✅ |
+| `radius` | oneOf([0, 1, 2, 3, 4, 100, 'pill']) | ✅ |
 | `rounded` | `oneOf(['bottom', 'top', - 'right', 'left'])` | ✅ |
+
 
 #### `withDefaults`
 #### `withBaseStyles`
