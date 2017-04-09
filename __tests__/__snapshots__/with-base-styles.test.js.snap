@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<button
+  className="class-one class-two classThree myClass my-other-class"
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`Div 1`] = `
+<div
+  className="class-one class-two classThree myClass my-other-class"
+/>
+`;
