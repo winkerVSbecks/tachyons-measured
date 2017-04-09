@@ -28,7 +28,7 @@ withBackgroundColor(
   colors: Array<string>
 ): HigherOrderComponent
 ```
-Allows you to set the background color using the `bg` prop.
+Allows you to set the background color using the `bg` prop. You will have to provide it a list of colour names that you are using in your project.
 
 ```js
 const clrs = ['red', 'green', 'blue', 'washed-yellow'];
@@ -46,7 +46,7 @@ withColor(
   colors: Array<string>
 ): HigherOrderComponent
 ```
-Allows you to set the font color using the `color` prop.
+Allows you to set the font color using the `color` prop. You will have to provide it a list of colour names that you are using in your project.
 
 ```js
 const clrs = ['medium-gray', 'red', 'green', 'blue'];
@@ -59,6 +59,23 @@ const Text = withColor(clrs)('p');
 ```
 
 #### `withSize`
+```js
+withColor(
+  colors: Array<string>
+): HigherOrderComponent
+```
+Exposes [widths](http://tachyons.io/docs/layout/widths/) & [heights](http://tachyons.io/docs/layout/heights/) as props.
+
+```js
+const Div = withSize('div');;
+
+<Div
+  w={{ l: 5, m: 4, ns: 'third', all: 3 }}
+  h={5}
+  className="myClass my-other-class"
+/>
+```
+
 #### `withBorder`
 #### `withTypography`
 #### `withDefaults`
