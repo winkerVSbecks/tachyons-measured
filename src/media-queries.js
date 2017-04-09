@@ -1,5 +1,5 @@
 import R from 'ramda';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 export const supportedSelectors = [
   'r', 'rounded', 'bw',
@@ -26,11 +26,10 @@ const mqType = type => R.compose(R.equals(type), R.head);
 const mqSelector = selector => ([type, val]) => `${selector}${val}-${type}`;
 
 const invalidMQ = selector => () => {
-  throw new Error(`Invalid media query type supplied to '${selector}'.
-  It only supports all, ns, m & l.`);
+  throw new Error(`Invalid media query type supplied to '${selector}'. It only supports all, ns, m & l.`);
 };
 
-export const mQObjToSelectors = R.curry((baseSelector, value) =>
+export const mqObjToSelectors = R.curry((baseSelector, value) =>
   R.compose(
     R.map(R.cond([
       [mqType('all'), ([, val]) => `${baseSelector}${val}`],

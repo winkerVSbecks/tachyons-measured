@@ -1,5 +1,5 @@
 import R, { __ } from 'ramda';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { classesFor } from './style-helper';
 import { cx, createWithStyleHoc, isPresent, normalizeClassNames } from './utils';
 import { addMQSupport } from './media-queries';

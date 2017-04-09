@@ -1,13 +1,13 @@
 import R from 'ramda';
-import { mQObjToSelectors } from './media-queries';
+import { mqObjToSelectors } from './media-queries';
 import { isPresent } from './utils';
 
 const hasMediaQuery = R.compose(R.is(Object), R.nth(1));
 
 export const selectorFor = R.curry((prop, val) => `${prop}${val}`);
 
-export const selectorForWithMQ = R.ifElse(hasMediaQuery,
-  R.apply(mQObjToSelectors),
+export const selectorWithMQFor = R.ifElse(hasMediaQuery,
+  R.apply(mqObjToSelectors),
   R.apply(selectorFor),
 );
 
@@ -17,7 +17,7 @@ export const selectorForWithMQ = R.ifElse(hasMediaQuery,
  * selector type and value is value
  */
 export const classesFor = R.compose(
-  R.map(selectorForWithMQ),
+  R.map(selectorWithMQFor),
   R.toPairs,
   R.filter(isPresent),
 );
