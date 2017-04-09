@@ -71,10 +71,10 @@ function borderTransform({
   );
 }
 
-const borderType = colors => addMQSupport(PropTypes.oneOfType([
-  PropTypes.bool,
+const borderType = colors => PropTypes.oneOfType([
+  addMQSupport(PropTypes.bool),
   PropTypes.oneOf(colors),
-]));
+]);
 
 const borderPropTypes = colors => ({
   ba: borderType(colors),
