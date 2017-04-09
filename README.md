@@ -77,9 +77,7 @@ const Text = withColor(clrs)('p');
 
 #### `withSize`
 ```js
-withColor(
-  colors: Array<string>
-): HigherOrderComponent
+withSize(): HigherOrderComponent
 ```
 Exposes [widths](http://tachyons.io/docs/layout/widths/) & [heights](http://tachyons.io/docs/layout/heights/) as props.
 
@@ -93,8 +91,23 @@ const Div = withSize('div');;
 />
 ```
 
-#### `withBorder`
 #### `withTypography`
+```js
+withTypography(): HigherOrderComponent
+```
+Allows you to set the [font size](http://tachyons.io/docs/typography/scale) and [line-height](http://tachyons.io/docs/typography/line-height) using the `f` and `lh` props respectively.
+
+```js
+const Text = withTypography('p');;
+
+<Text
+  f={{ l: 4, m: 3, ns: 2, all: 1 }}
+  lh="copy"
+  className="myClass my-other-class"
+/>
+```
+
+#### `withBorder`
 #### `withDefaults`
 #### `withBaseStyles`
 #### `withMsrd`
