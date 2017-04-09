@@ -3,7 +3,11 @@ import R, { __ } from 'ramda';
 
 export const isPresent = R.complement(R.isNil);
 const hasPrototype = R.has('prototype');
-const isReactComponent = R.propIs(Object, 'isReactComponent');
+const isReactComponent = R.compose(
+  R.equals('Object'),
+  R.type,
+  c => c.prototype.isReactComponent,
+);
 const isClassComponent = R.allPass([isPresent, hasPrototype, isReactComponent]);
 const isNotClassComponent = R.complement(isClassComponent);
 const doesNotHave = R.complement(R.has);
@@ -18,7 +22,8 @@ export const normalizeClassNames = options => mapIfObj(
     R.concat('-')));
 
 /**
- * Compose classnames
+ * Compose classnames using deeply nested arrays of strings
+ * or arrays of arrays of strings.
  */
 export const cx = R.compose(R.join(' '), R.flatten);
 

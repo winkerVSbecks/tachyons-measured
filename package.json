@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
-    "lint": "eslint src example"
+    "test": "jest",
+    "lint": "eslint src __tests_"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -24,8 +25,10 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "html-webpack-plugin": "^2.28.0",
+    "jest": "^19.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-test-renderer": "^15.5.3",
     "style-loader": "^0.16.0",
     "tachyons": "^4.7.0",
     "webpack": "^2.3.1",

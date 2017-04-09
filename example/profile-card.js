@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose } from 'ramda';
-import { Article, Heading, Text } from './components';
+import { Article, Heading, Text, Block } from './components';
 import clrs from './clrs';
 import {
   withSpacing,
@@ -12,7 +12,6 @@ import {
 
 export const ProfileCard = withDefaults({
   pa: { all: 3, ns: 4 },
-  mv: 3,
   ba: 'black-10',
   radius: 3,
   bg: 'white',
@@ -25,9 +24,9 @@ export const Media = compose(
   withBaseStyles('dib'),
 )('img');
 
-export const CatCard = props => (
+export const CatProfileCard = props => (
   <ProfileCard {...props}>
-    <div className="tc">
+    <Block className="tc">
       <Media
         src="http://tachyons.io/img/avatar_1.jpg"
         radius={100}
@@ -36,10 +35,10 @@ export const CatCard = props => (
       />
       <Heading f={4}>Mimi Whitehouse</Heading>
       <hr className="mw3 bb bw1 b--black-10" />
-    </div>
+    </Block>
     <Text
-      f={6} color="black-70"
-      className="lh-copy measure center f6"
+      f={6} color="black-70" lh="copy"
+      className="measure center"
     >
       Quite affectionate and outgoing.
       She loves to get chin scratches and will
