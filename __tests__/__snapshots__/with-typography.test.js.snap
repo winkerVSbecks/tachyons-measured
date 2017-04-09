@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<button
+  className="f4-l f3-m f2-ns f1 lh-copy myClass my-other-class"
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`Div 1`] = `
+<div
+  className="f-subheadline lh-copy-l lh-title-m lh-solid-ns lh-copy myClass my-other-class"
+/>
+`;
