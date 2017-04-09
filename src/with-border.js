@@ -71,7 +71,10 @@ function borderTransform({
   );
 }
 
-const borderType = colors => PropTypes.oneOf(colors);
+const borderType = colors => PropTypes.oneOfType([
+  PropTypes.oneOf(colors),
+  PropTypes.bool,
+]);
 
 const borderPropTypes = colors => ({
   ba: borderType(colors),
@@ -79,9 +82,9 @@ const borderPropTypes = colors => ({
   br: borderType(colors),
   bt: borderType(colors),
   bb: borderType(colors),
-  bn: addMQSupport(PropTypes.bool),
+  bn: PropTypes.bool,
   bw: addMQSupport(PropTypes.oneOf(border.widths)),
-  radius: PropTypes.oneOf(border.radii),
+  radius: addMQSupport(PropTypes.oneOf(border.radii)),
   rounded: addMQSupport(PropTypes.oneOf(['bottom', 'top', 'right', 'left'])),
   className: PropTypes.any,
 });

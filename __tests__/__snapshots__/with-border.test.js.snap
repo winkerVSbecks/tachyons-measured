@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<button
+  className="br-pill br--top b--gray bw1-l bw2-m bw3-ns bw4 bb myClass my-other-class"
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`Div 1`] = `
+<div
+  className="br1-l br2-m br-100-ns br4 br--bottom-l br--top-m br--right-ns br--left bw2 ba myClass my-other-class"
+/>
+`;
