@@ -7,7 +7,7 @@ A set of higher order components for creating stateless functional UI components
   - [Media Query Support](#media-query-support)
   - [Higher Order Components](#higher-order-components)
   - [Eager Evaluation](#eager-evaluation)
-- [Why?](#why?)
+- [Why?](#why)
 - [Inspired by and Related to](#inspired-by-and-related-to)
 
 ### Usage & Example
@@ -345,7 +345,7 @@ const Button = ({
 full example: [codepen.io/winkerVSbecks/pen/LWBLYb](http://codepen.io/winkerVSbecks/pen/LWBLYb?editors=0010)
 
 
-### Inspired by and Related to
+## Inspired by and Related to
 
 + [tachyons-react](https://github.com/tachyons-react/tachyons-react)
 + [github.com/tachyons-css/tachyons](https://github.com/tachyons-css/tachyons)
