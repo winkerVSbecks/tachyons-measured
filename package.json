@@ -1,6 +1,6 @@
 {
   "name": "tachyons-measured",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A set of higher order components for creating stateless functional UI components using tachyons.",
   "main": "./lib/index.js",
   "module": "es/index.js",
