@@ -4,7 +4,7 @@
 
 A set of higher order components (HOC) for creating stateless functional UI components using tachyons.
 
-🎏 [Demo](https://pushy-spirit.glitch.me) & [Demo Code](https://glitch.com/edit/#!/pushy-spirit) 🎏
+🎏 **Demo** [App](https://pushy-spirit.glitch.me) & [Code](https://glitch.com/edit/#!/pushy-spirit)
 
 - [API](#api)
   - [Media Query Support](#media-query-support)
@@ -396,6 +396,7 @@ We are passing all `props` from `<CatProductCard>` to `<ProductCard>`. This mean
 />
 ```
 
+🎏 See the full code for the example here [tachyons-measured demo](https://pushy-spirit.glitch.me)
 🚨 For more examples see the `examples` directory.
 
 
