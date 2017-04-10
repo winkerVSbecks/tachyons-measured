@@ -8,16 +8,17 @@ const plugins = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     },
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      pure_getters: true,
-      unsafe: true,
-      unsafe_comps: true,
-      screw_ie8: true,
-      warnings: false,
-    },
-  }),
 ];
+
+if (process.env.NODE_ENV === 'production') {
+  plugins.push(new webpack.optimize.UglifyJsPlugin({ compressor: {
+    pure_getters: true,
+    unsafe: true,
+    unsafe_comps: true,
+    screw_ie8: true,
+    warnings: false,
+  } }));
+}
 
 module.exports = {
   externals: {
@@ -41,8 +42,6 @@ module.exports = {
     }],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'tachyons-measured.min.js',
     library: 'tachyons-measured',
     libraryTarget: 'umd',
   },

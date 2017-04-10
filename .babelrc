@@ -1,17 +1,12 @@
 {
+  "presets": ["es2015", "react"],
   "env": {
-    "production": {
+    "commonjs": {
       "presets": [
         ["es2015", { modules: false }],
         "react"
       ],
-    },
-    "development": {
-      "presets": ["es2015", "react"],
-    },
-    "test": {
-      "presets": ["es2015", "react"],
-    },
+    }
   },
   "plugins": [
     "ramda",
