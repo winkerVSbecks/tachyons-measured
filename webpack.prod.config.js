@@ -42,8 +42,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'tachyons-msrd.min.js',
-    library: 'tachyons-msrd',
+    filename: 'tachyons-measured.min.js',
+    library: 'tachyons-measured',
     libraryTarget: 'umd',
   },
   plugins,

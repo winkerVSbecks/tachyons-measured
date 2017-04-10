@@ -6,7 +6,7 @@ import { withSize } from './with-size';
 import { withBorder } from './with-border';
 import { withTypography } from './with-typography';
 
-export const withMsrd = colors => compose(
+export const withMeasured = colors => compose(
   withSpacing,
   withBackgroundColor(colors),
   withColor(colors),

@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/winkerVSbecks/tachyons-msrd/tree/master.svg?style=svg)](https://circleci.com/gh/winkerVSbecks/tachyons-msrd/tree/master)
+[![CircleCI](https://circleci.com/gh/winkerVSbecks/tachyons-measured/tree/master.svg?style=svg)](https://circleci.com/gh/winkerVSbecks/tachyons-measured/tree/master)
 
-# 📏 📐 tachyons-msrd
+# 📏 📐 tachyons-measured
 
 A set of higher order components (HOC) for creating stateless functional UI components using tachyons.
 
@@ -44,7 +44,7 @@ For example: `<Text f={1} />` or `<Text f={{ all: 3, ns: 2, m: 1, l: 'headline' 
 - [`withTypography`](#withtypography)
 - [`withBorder`](#withborder)
 - [`withDefaults`](#withdefaults)
-- [`withMsrd`](#withmsrd)
+- [`withMeasured`](#withMeasured)
 
 #### `withBaseStyles`
 ```js
@@ -245,9 +245,9 @@ const Title = compose(
 ```
 
 
-#### `withMsrd`
+#### `withMeasured`
 ```js
-withMsrd(
+withMeasured(
   colors: Array<string>
 ): HigherOrderComponent
 ```
@@ -255,7 +255,7 @@ A composition of `withSpacing`, `withBackgroundColor(colors)`, `withColor(colors
 
 ```js
 const clrs = ['white', 'red', 'green', 'blue'];
-export const Block = withMsrd(clrs)('div');
+export const Block = withMeasured(clrs)('div');
 
 <Block
   f={{ l: 4, m: 3, ns: 2, all: 1 }}
@@ -273,10 +273,10 @@ export const Block = withMsrd(clrs)('div');
 ```
 
 ### Compose
-tachyons-msrd provides the [ramda](http://ramdajs.com/docs/#compose) `compose` function. However, should be able to use any `compose` function. Such as the one provided by [underscore](http://underscorejs.org/#compose) or [recompose](https://github.com/acdlite/recompose/blob/master/docs/API.md#compose), etc.
+tachyons-measured provides the [ramda](http://ramdajs.com/docs/#compose) `compose` function. However, should be able to use any `compose` function. Such as the one provided by [underscore](http://underscorejs.org/#compose) or [recompose](https://github.com/acdlite/recompose/blob/master/docs/API.md#compose), etc.
 
 ```js
-import { compose } from 'tachyons-msrd';
+import { compose } from 'tachyons-measured';
 ```
 
 
@@ -315,16 +315,16 @@ For more info see this [talk by Andrew Clark](https://youtu.be/zD_judE-bXk?t=19m
 
 ## Example
 
-We are going to replicate this [Product Card](http://tachyons.io/components/cards/product-card/index.html). We start by creating some base components by enhancing HTML elements using tachyons-msrd HOCs.
+We are going to replicate this [Product Card](http://tachyons.io/components/cards/product-card/index.html). We start by creating some base components by enhancing HTML elements using tachyons-measured HOCs.
 
 ```js
-export const Block = withMsrd(clrs)('div');
-export const Article = withMsrd(clrs)('article');
-export const Heading = withMsrd(clrs)('h1');
+export const Block = withMeasured(clrs)('div');
+export const Article = withMeasured(clrs)('article');
+export const Heading = withMeasured(clrs)('h1');
 
 export const Text = compose(
   withDefaults({ f: 5, lh: 'copy' }),
-  withMsrd(clrs),
+  withMeasured(clrs),
 )('p');
 
 export const Media = compose(
@@ -481,4 +481,4 @@ full example: [codepen.io/winkerVSbecks/pen/LWBLYb](http://codepen.io/winkerVSbe
 
 
 ## Feedback
-This is still in the early stages. Any feedback and bug reports are much appreciated. Please submit them [here](https://github.com/winkerVSbecks/tachyons-msrd/issues) or reach out to me on [twitter](https://twitter.com/winkerVSbecks).
+This is still in the early stages. Any feedback and bug reports are much appreciated. Please submit them [here](https://github.com/winkerVSbecks/tachyons-measured/issues) or reach out to me on [twitter](https://twitter.com/winkerVSbecks).

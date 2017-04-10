@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { withMsrd } from '../src/with-msrd';
+import { withMeasured } from '../src/with-msrd';
 import clrs from '../example/clrs';
 
-const Button = withMsrd(clrs)(props => <button {...props} />);
-const Div = withMsrd(clrs)('div');
+const Button = withMeasured(clrs)(props => <button {...props} />);
+const Div = withMeasured(clrs)('div');
 
 test('Button', () => {
   const tree = renderer.create(

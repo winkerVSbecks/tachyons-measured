@@ -6,17 +6,17 @@ import {
   withTypography,
   withDefaults,
   withBaseStyles,
-  withMsrd,
+  withMeasured,
   withBorder,
   withSize,
 } from '../src';
 
-export const Block = withMsrd(clrs)('div');
-export const Article = withMsrd(clrs)('article');
+export const Block = withMeasured(clrs)('div');
+export const Article = withMeasured(clrs)('article');
 
 export const Heading = compose(
   withDefaults({ f: 3 }),
-  withMsrd(clrs),
+  withMeasured(clrs),
 )(({ level = 1, ...props }) => {
   const Tag = `h${level}`;
   return <Tag {...props} />;
@@ -24,7 +24,7 @@ export const Heading = compose(
 
 export const Text = compose(
   withDefaults({ f: 5, lh: 'copy' }),
-  withMsrd(clrs),
+  withMeasured(clrs),
 )('p');
 
 export const PageTitle = compose(
