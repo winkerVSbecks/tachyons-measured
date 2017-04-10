@@ -4,7 +4,9 @@
 
 A set of higher order components (HOC) for creating stateless functional UI components using tachyons.
 
-🎏 **Demo** [App](https://pushy-spirit.glitch.me) & [Code](https://glitch.com/edit/#!/pushy-spirit)
+**Usage Demo:** [🎏 App](https://pushy-spirit.glitch.me) & [🎏 Code](https://glitch.com/edit/#!/pushy-spirit)
+
+---
 
 - [API](#api)
   - [Media Query Support](#media-query-support)
