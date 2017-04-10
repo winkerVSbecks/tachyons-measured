@@ -6,6 +6,10 @@ A set of higher order components (HOC) for creating stateless functional UI comp
 
 **🎏 Usage Demo:** [App](https://pushy-spirit.glitch.me) & [Code](https://glitch.com/edit/#!/pushy-spirit)
 
+```shell
+$ npm install tachyons-measured --save
+```
+
 ---
 
 - [API](#api)
