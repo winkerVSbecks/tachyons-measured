@@ -35,7 +35,7 @@ const sizePropTypes = {
 };
 
 export const withTypography = component => createWithStyleHoc({
-  name: 'withSize',
+  name: 'withTypography',
   transformation: typographyTransform,
   propTypes: sizePropTypes,
   component,
