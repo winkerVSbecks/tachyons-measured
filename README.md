@@ -16,7 +16,7 @@ A set of higher order components (HOC) for creating stateless functional UI comp
 
 ## API
 
-### Media Query Support
+### Media Query (MQ) Support
 The following properties support the media query syntax:
 - `r`, `rounded`, `bw`
 - `f`, `lh`
