@@ -8,8 +8,9 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
+    "pretest": "npm run lint",
     "test": "jest",
-    "lint": "eslint src __tests_"
+    "lint": "eslint src __tests__"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
