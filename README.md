@@ -5,6 +5,7 @@ A set of higher order components (HOC) for creating stateless functional UI comp
 - [API](#api)
   - [Media Query Support](#media-query-support)
   - [Higher Order Components](#higher-order-components)
+  - [Compose](#compose)
   - [Performance](#performance)
 - [Example](#example)
 - [Why?](#why)
@@ -269,6 +270,46 @@ export const Block = withMsrd(clrs)('div');
 />
 ```
 
+### Compose
+tachyons-msrd provides the [ramda](http://ramdajs.com/docs/#compose) `compose` function. However, should be able to use any `compose` function. Such as the one provided by [underscore](http://underscorejs.org/#compose) or [recompose](https://github.com/acdlite/recompose/blob/master/docs/API.md#compose), etc.
+
+```js
+import { compose } from 'tachyons-msrd';
+```
+
+
+### Performance
+All the HOC provided by this library are stateless and mostly just responsible for mapping or generating props. Therefore, they have been setup to be eagerly evaluated. This is based on the [createEagerElement](https://github.com/acdlite/recompose/blob/master/src/packages/recompose/utils/createEagerElementUtil.js) pattern from [recompose](https://github.com/acdlite/recompose).
+
+Without eager evaluation the component tree would look something like this:
+
+```js
+<withSpacing>
+  <withBackgroundColor>
+    <withColor>
+      <withSize>
+        <withBorder>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <div>
+        <withBorder>
+      <withSize>
+    <withColor>
+  <withBackgroundColor>
+</withSpacing>
+```
+
+With eager evaluation all the HOC are collapsed into one component instance. This helps achieve better performance since a fewer component instances are created. Also, it should help with debugging since the component tree is much flatter.
+
+```js
+<withSpacing(withBackgroundColor(withColor(withSize(withBorder(div)))))>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</withSpacing(withBackgroundColor(withColor(withSize(withBorder(div)))))>
+```
+
+For more info see this [talk by Andrew Clark](https://youtu.be/zD_judE-bXk?t=19m10s)
+
+
 
 ## Example
 
@@ -352,38 +393,6 @@ We are passing all `props` from `<CatProductCard>` to `<ProductCard>`. This mean
 ```
 
 🚨 For more examples see the `examples` directory.
-
-
-### Performance
-All the HOC provided by this library are stateless and mostly just responsible for mapping or generating props. Therefore, they have been setup to be eagerly evaluated. This is based on the [createEagerElement](https://github.com/acdlite/recompose/blob/master/src/packages/recompose/utils/createEagerElementUtil.js) pattern from [recompose](https://github.com/acdlite/recompose).
-
-Without eager evaluation the component tree would look something like this:
-
-```js
-<withSpacing>
-  <withBackgroundColor>
-    <withColor>
-      <withSize>
-        <withBorder>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          <div>
-        <withBorder>
-      <withSize>
-    <withColor>
-  <withBackgroundColor>
-</withSpacing>
-```
-
-With eager evaluation all the HOC are collapsed into one component instance. This helps achieve better performance since a fewer component instances are created. Also, it should help with debugging since the component tree is much flatter.
-
-```js
-<withSpacing(withBackgroundColor(withColor(withSize(withBorder(div)))))>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-</withSpacing(withBackgroundColor(withColor(withSize(withBorder(div)))))>
-```
-
-For more info see this [talk by Andrew Clark](https://youtu.be/zD_judE-bXk?t=19m10s)
 
 
 ## Why?

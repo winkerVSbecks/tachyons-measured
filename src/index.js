@@ -7,3 +7,4 @@ export * from '../src/with-typography';
 export * from '../src/with-defaults';
 export * from '../src/with-base-styles';
 export * from '../src/with-msrd';
+export { compose } from 'ramda';
