@@ -19,7 +19,7 @@ export const CatProductCard = props => (
       alt="kitten looking menacing."
     />
     <Block pa={2} ph={{ ns: 3 }} pb={{ ns: 3 }}>
-      <Block className="flex w-100 mt1 items-center">
+      <Block w={100} mt={1} className="flex items-center">
         <Heading
           f={{ all: 5, ns: 4 }} mv={0}
           className="flex-auto"

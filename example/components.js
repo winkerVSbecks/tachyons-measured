@@ -23,7 +23,7 @@ export const Heading = compose(
 });
 
 export const Text = compose(
-  withDefaults({ f: 5, className: 'measure', lh: 'copy' }),
+  withDefaults({ f: 5, lh: 'copy' }),
   withMsrd(clrs),
 )('p');
 

@@ -1,7 +1,7 @@
 {
   "name": "tachyons-msrd",
   "version": "1.0.0",
-  "description": "higher order components for using tachyons",
+  "description": "A set of higher order components for creating stateless functional UI components using tachyons.",
   "main": "src/index.js",
   "repository": "https://github.com/winkerVSbecks/tachyons-msrd",
   "author": "Varun Vachhar <varunvachhar@gmail.com>",

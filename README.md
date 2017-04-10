@@ -1,16 +1,15 @@
 # 📏 📐 tachyons-msrd
 
-A set of higher order components for creating stateless functional UI components using tachyons.
+A set of higher order components (HOC) for creating stateless functional UI components using tachyons.
 
-- [Usage & Example](#)
 - [API](#api)
   - [Media Query Support](#media-query-support)
   - [Higher Order Components](#higher-order-components)
   - [Performance](#performance)
+- [Example](#example)
 - [Why?](#why)
 - [Inspired by and Related to](#inspired-by-and-related-to)
 
-### Usage & Example
 
 ## API
 
@@ -270,6 +269,91 @@ export const Block = withMsrd(clrs)('div');
 />
 ```
 
+
+## Example
+
+We are going to replicate this [Product Card](http://tachyons.io/components/cards/product-card/index.html). We start by creating some base components by enhancing HTML elements using tachyons-msrd HOCs.
+
+```js
+export const Block = withMsrd(clrs)('div');
+export const Article = withMsrd(clrs)('article');
+export const Heading = withMsrd(clrs)('h1');
+
+export const Text = compose(
+  withDefaults({ f: 5, lh: 'copy' }),
+  withMsrd(clrs),
+)('p');
+
+export const Media = compose(
+  withBorder(clrs),
+  withSize,
+  withSpacing,
+  withBaseStyles('db'),
+)('img');
+```
+
+The `<ProductCard>` component is simply the `<Article>` component with some default styles applied to it. Therefore, we can create the `<ProductCard>` by wrapping `<Article>` with the `withDefaults` HOC.
+
+```js
+export const ProductCard = withDefaults({
+  ba: 'black-10',
+  radius: 2,
+  bg: 'white',
+  color: 'dark-gray',
+})(Article);
+```
+
+Finally, we combine them all together to create the `<CatProductCard>`.
+
+```js
+export const CatProductCard = props => (
+  <ProductCard {...props}>
+
+    <Media
+      src="http://placekitten.com/g/600/300"
+      w={100}
+      radius={2} rounded="top"
+      alt="kitten looking menacing."
+    />
+
+    <Block pa={2} ph={{ ns: 3 }} pb={{ ns: 3 }}>
+
+      <Block w={100} mt={1} className="flex items-center">
+        <Heading
+          f={{ all: 5, ns: 4 }} mv={0}
+          className="flex-auto"
+        >
+          Cat
+        </Heading>
+        <Heading f={5} mv={0}>$1,000</Heading>
+      </Block>
+
+      <Text
+        mt={2}
+        f={6} lh="copy" color="mid-gray"
+        className="measure"
+      >
+        If it fits, i sits burrow under covers. Destroy couch leave hair
+        everywhere, and touch water with paw then recoil in horror.
+      </Text>
+
+    </Block>
+  </ProductCard>
+);
+```
+
+We are passing all `props` from `<CatProductCard>` to `<ProductCard>`. This means when we are using `<CatProductCard>` we can use props to control the styles for a specific instance. For example:
+
+```js
+<CatProductCard
+  w={{ all: 100, m: 5, l: 5 }}
+  className="center"
+/>
+```
+
+🚨 For more examples see the `examples` directory.
+
+
 ### Performance
 All the HOC provided by this library are stateless and mostly just responsible for mapping or generating props. Therefore, they have been setup to be eagerly evaluated. This is based on the [createEagerElement](https://github.com/acdlite/recompose/blob/master/src/packages/recompose/utils/createEagerElementUtil.js) pattern from [recompose](https://github.com/acdlite/recompose).
 
@@ -383,3 +467,7 @@ full example: [codepen.io/winkerVSbecks/pen/LWBLYb](http://codepen.io/winkerVSbe
 + [tachyons](https://github.com/tachyons-css/tachyons)
 + [github.com/jxnblk/rebass](https://github.com/jxnblk/rebass)
 + [github.com/acdlite/recompose](https://github.com/acdlite/recompose)
+
+
+## Feedback
+This is still in the early stages. Any feedback and bug reports are much appreciated. Please submit them [here](https://github.com/winkerVSbecks/tachyons-msrd/issues) or reach out to me on [twitter](https://twitter.com/winkerVSbecks).
