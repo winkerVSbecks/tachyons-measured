@@ -1,6 +1,6 @@
 {
   "name": "tachyons-measured",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A set of higher order components for creating stateless functional UI components using tachyons.",
   "main": "./lib/index.js",
   "module": "es/index.js",
@@ -12,7 +12,7 @@
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "BABEL_ENV=commonjs NODE_ENV=development webpack -p --config webpack.prod.config.js dist/tachyons-measured.js",
+    "build:umd": "BABEL_ENV=commonjs NODE_ENV=development webpack --config webpack.prod.config.js dist/tachyons-measured.js",
     "build:umd:min": "BABEL_ENV=commonjs NODE_ENV=production webpack -p --config webpack.prod.config.js dist/tachyons-measured.min.js",
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "profile-build": "NODE_ENV=production webpack --config webpack.prod.config.js -p --profile --json > stats.json && webpack-bundle-analyzer stats.json",

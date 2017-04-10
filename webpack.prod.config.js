@@ -42,7 +42,7 @@ module.exports = {
     }],
   },
   output: {
-    library: 'tachyons-measured',
+    library: 'TachyonsMeasured',
     libraryTarget: 'umd',
   },
   plugins,
