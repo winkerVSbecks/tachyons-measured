@@ -1,3 +1,7 @@
+Not really maintaining this at the moment. Maybe consider using [jxnblk/styled-system](https://github.com/jxnblk/styled-system) which has a similar API and is not constrained to tachyons.
+
+---
+
 [![CircleCI](https://circleci.com/gh/winkerVSbecks/tachyons-measured/tree/master.svg?style=svg)](https://circleci.com/gh/winkerVSbecks/tachyons-measured/tree/master)
 
 # 📏 📐 tachyons-measured
