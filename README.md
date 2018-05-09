@@ -1,4 +1,6 @@
-Not really maintaining this at the moment. Maybe consider using [jxnblk/styled-system](https://github.com/jxnblk/styled-system) which has a similar API and is not constrained to tachyons.
+![Not Maintained](https://img.shields.io/badge/status-not%20maintained-red.svg?longCache=true&style=for-the-badge)
+
+No longer maintained. Consider using [tachyons-components](https://github.com/jxnblk/tachyons-components) or better yet [jxnblk/styled-system](https://github.com/jxnblk/styled-system) which has a similar API and is not constrained to tachyons.
 
 ---
 
